@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeraBox Downloader - Download TeraBox Videos Instantly</title>
+  <meta name="description" content="Download TeraBox videos with no limits, no ads, and no signup required.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Feather Icons -->
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="#" class="navbar-logo">
+          <h1 class="gradient-text">TeraBox Downloader</h1>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="navbar-links desktop-nav">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+      <div class="container">
+        <div class="mobile-nav-links">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <canvas id="hero-canvas" class="hero-canvas"></canvas>
+      <div class="gradient-overlay"></div>
+      
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title gradient-text animate-fade-in">Download TeraBox Videos Instantly</h1>
+          <p class="hero-subtitle animate-fade-in">No limits. No ads. No signup.</p>
+          
+          <form id="url-form" class="url-form animate-fade-in">
+            <input 
+              type="text" 
+              id="video-url" 
+              placeholder="Paste TeraBox link here..." 
+              class="url-input"
+            >
+            <button type="submit" id="download-btn" class="download-btn">
+              Download Now <i data-feather="download"></i>
+            </button>
+          </form>
+          
+          <a href="#how-it-works" class="learn-more animate-fade-in">
+            Learn how it works <i data-feather="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Details Section (Hidden by default) -->
+    <section id="video-details" class="video-details-section hidden">
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title gradient-text">
+            <i data-feather="film"></i> Video Details
+          </h2>
+          <!-- Video stream container -->
+          <div id="stream-video" class="stream-video-section inactive"></div>
+          <!-- Details -->
+          <div class="video-info">
+            <h3 id="video-title" class="video-title">Sample TeraBox Video</h3>
+            
+            <div class="video-metadata">
+              <div class="metadata-item">
+                <p class="metadata-label">File Size</p>
+                <p id="video-size" class="metadata-value">245.8 MB</p>
+              </div>
+              
+              <div class="metadata-item">
+                <p class="metadata-label">Select Resolution</p>
+                <select id="video-resolution" class="resolution-select">
+                  <option value="1080p">1080p (Full HD) - 245.8 MB</option>
+                  <option value="720p">720p (HD) - 145.3 MB</option>
+                  <option value="480p">480p (SD) - 85.2 MB</option>
+                  <option value="360p">360p (Low) - 45.7 MB</option>
+                </select>
+              </div>
+              
+              <button id="download-video-btn" class="download-video-btn">
+                <i data-feather="download"></i> Download Video
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title gradient-text">Powerful Features</h2>
+          <p class="section-subtitle">Our TeraBox Downloader offers everything you need for a seamless video downloading experience.</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i data-feather="repeat"></i>
+            </div>
+            <h3 class="feature-title">Unlimited Free Downloads</h3>
+            <p class="feature-description">Download as many TeraBox videos as you want with no restrictions or limits.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i data-feather="slash"></i>
+            </div>
+            <h3 class="feature-title">No Ads, No Login</h3>
+            <p class="feature-description">Enjoy a clean experience with no annoying ads or account creation required.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i data-feather="tv"></i>
+            </div>
+            <h3 class="feature-title">HD & Mobile Support</h3>
+            <p class="feature-description">Download videos in high definition or optimize for mobile devices.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i data-feather="zap"></i>
+            </div>
+            <h3 class="feature-title">Fast and Secure</h3>
+            <p class="feature-description">Lightning-fast downloads with secure, encrypted connections for your privacy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title gradient-text">How It Works</h2>
+          <p class="section-subtitle">Download any TeraBox video in just three simple steps.</p>
+        </div>
+        
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-icon">
+              <i data-feather="link"></i>
+            </div>
+            <h3 class="step-title">Paste Link</h3>
+            <p class="step-description">Copy and paste any public TeraBox video link into our downloader.</p>
+          </div>
+          
+          <div class="step-connector"></div>
+          
+          <div class="step-card">
+            <div class="step-icon">
+              <i data-feather="search"></i>
+            </div>
+            <h3 class="step-title">Fetch Info</h3>
+            <p class="step-description">Our system will analyze the link and retrieve all available video information.</p>
+          </div>
+          
+          <div class="step-connector"></div>
+          
+          <div class="step-card">
+            <div class="step-icon">
+              <i data-feather="download"></i>
+            </div>
+            <h3 class="step-title">Download</h3>
+            <p class="step-description">Choose your preferred quality and download the video with one click.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title gradient-text">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Find answers to common questions about TeraBox Downloader.</p>
+        </div>
+        
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is TeraBox Downloader completely free?</span>
+              <i data-feather="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, TeraBox Downloader is 100% free to use with no hidden fees or premium tiers. We don't require any payment information or subscriptions.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is it legal to download videos from TeraBox?</span>
+              <i data-feather="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>TeraBox Downloader is designed for downloading content that you have the right to access. Please ensure you have permission to download and use any content according to TeraBox's terms of service.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What video formats and qualities are supported?</span>
+              <i data-feather="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>We support all video formats available on TeraBox, including MP4, MKV, and more. You can choose from various quality options ranging from mobile-friendly to full HD resolution.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do I need to create an account to use TeraBox Downloader?</span>
+              <i data-feather="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>No, we don't require any registration or account creation. Simply paste your TeraBox link and start downloading immediately.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Why isn't my download working?</span>
+              <i data-feather="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>This could be due to an invalid or expired link, a private video, or temporary server issues. Try refreshing the page or checking if the TeraBox link is still valid and public.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title gradient-text">Get In Touch</h2>
+          <p class="section-subtitle">Have questions or feedback? We'd love to hear from you.</p>
+        </div>
+        
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="card">
+              <h3 class="card-title">Contact Information</h3>
+              
+              <div class="contact-methods">
+                <div class="contact-method">
+                  <div class="contact-icon">
+                    <i data-feather="mail"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Email Us</h4>
+                    <p>support@teraboxdownloader.com</p>
+                  </div>
+                </div>
+                
+                <div class="contact-method">
+                  <div class="contact-icon">
+                    <i data-feather="message-square"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Live Chat</h4>
+                    <p>Available 24/7 for premium users</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="social-links">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                  <a href="#" class="social-icon">
+                    <i data-feather="facebook"></i>
+                  </a>
+                  <a href="#" class="social-icon">
+                    <i data-feather="twitter"></i>
+                  </a>
+                  <a href="#" class="social-icon">
+                    <i data-feather="instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form-container">
+            <div class="card">
+              <h3 class="card-title">Send a Message</h3>
+              
+              <div id="success-message" class="success-message hidden">
+                <p>Your message has been sent successfully! We'll get back to you soon.</p>
+              </div>
+              
+              <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="message">Your Message</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                  Send Message <i data-feather="send"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#" class="footer-logo">
+            <h2 class="gradient-text">TeraBox Downloader</h2>
+          </a>
+          <p>The fastest and most reliable way to download TeraBox videos for free.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon">
+              <i data-feather="facebook"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i data-feather="twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i data-feather="instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">DMCA</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to get updates on new features and releases.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> TeraBox Downloader. All rights reserved.</p>
+        <div class="footer-bottom-right">
+          <p>Designed with ❤️ for video enthusiasts</p>
+          <button id="scroll-top" class="scroll-top-btn">
+            <i data-feather="arrow-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/three-background.js"></script>
+</body>
+</html>
